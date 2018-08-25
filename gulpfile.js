@@ -17,6 +17,7 @@ var config = {
         paths: {
             html: './src/*.html',
             js: './src/**/*.js',
+            images: './src/images/*',
             css: [
                 'node_modules/bootstrap/dist/css/bootstrap.min.css',
                 'node_modules/bootstrap/dist/css/bootstrap-reboot.min.css',
@@ -30,7 +31,7 @@ var config = {
 
 
 //default 'gulp'
-gulp.task('default', ['html', 'js', 'css', 'open', 'watch', 'lint']);
+gulp.task('default', ['html', 'js', 'css', 'images', 'lint', 'open', 'watch']);
 
 gulp.task('connect', function() {
     connect.server({
@@ -58,6 +59,7 @@ gulp.task('watch', function() {
     gulp.watch(config.dev.paths.html, ['html']);
     gulp.watch(config.dev.paths.js, ['js', 'lint']);
     gulp.watch(config.dev.paths.css, ['css']);
+    gulp.watch(config.dev.paths.images, ['images']);
 });
 
 gulp.task('html', function() {
@@ -74,6 +76,15 @@ gulp.task('js', function() {
         .pipe(source('bundle.js'))
         .pipe(gulp.dest(config.dev.paths.dist + '/scripts'))
         .pipe(connect.reload());
+});
+
+gulp.task('images', function() {
+    gulp.src(config.dev.paths.images)
+        .pipe(gulp.dest(config.dev.paths.dist + '/images'))
+        .pipe(connect.reload());
+
+    gulp.src('./src/images/favicon.ico')
+        .pipe(gulp.dest(config.dev.paths.dist));
 });
 
 gulp.task('css', function() {
