@@ -12,6 +12,7 @@ var About = CreateClass( {
                     <ol>
                         <li>Farts</li>
                         <li>Butts</li> 
+                        <li>Oh poops</li> 
                     </ol>
                 
             </div>
