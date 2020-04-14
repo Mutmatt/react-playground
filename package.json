@@ -18,7 +18,7 @@
     "gulp-connect": "^5.5.0",
     "gulp-eslint": "^5.0.0",
     "gulp-open": "^3.0.1",
-    "jquery": "^3.3.1",
+    "jquery": "^3.5.0",
     "lodash": "^4.17.10",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
